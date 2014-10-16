@@ -1,8 +1,8 @@
 var infoWindows = [];
 function initialize() {
   var mapOptions = {
-    center: { lat: 36.8575964, lng: -76.2795736},
-    zoom: 15
+    center: { lat: 36.850311, lng: -76.288529},
+    zoom: 14
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
