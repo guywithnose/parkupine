@@ -9,9 +9,9 @@ function initialize() {
   var address = get('address');
   if (address != null) {
     codeAddress(address, map);
-      $('.direction-form').hide();
-      $('.footer').hide();
-      $('#map-canvas').fadeIn();
+    $('.direction-form').hide();
+    $('.footer').hide();
+    $('#map-canvas').fadeIn();
   }
 
   $.getJSON('data/garages.json', function(garages) {
@@ -37,7 +37,7 @@ function initialize() {
       content.append('<br><i class="fa fa-map-marker"></i> ' + garage.address);
       content.append('<br><i class="fa fa-car"></i> ' + garage.availableSpaces);
       content.append(' open spots out of ' + garage.totalSpaces);
-      
+
       var percentFull = Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
       content.append('<br/><i class="fa fa-pie-chart"></i> ' + percentFull + '% full');
       content.append('<br><i class="fa fa-money"></i> ' + garage.pricePerHr.toFixed(2));
@@ -71,7 +71,7 @@ function showInfoWindow(map, marker, infowindow) {
 function codeAddress(address, map) {
     address = decodeURIComponent(address);
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode( { 'address': address}, function(results, status) {
+    geocoder.geocode({ 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
         map.setZoom(17);
@@ -80,7 +80,7 @@ function codeAddress(address, map) {
             position: results[0].geometry.location
         });
       } else {
-        alert("Geocode was not successful for the following reason: " + status);
+        alert('Geocode was not successful for the following reason: ' + status);
       }
     });
 }
