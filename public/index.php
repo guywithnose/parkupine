@@ -1,7 +1,2 @@
-<html>
-<head>
-</head>
-<body>
-It works
-</body>
-</html>
+<?php
+include 'index.html';
