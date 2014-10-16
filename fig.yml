@@ -3,11 +3,19 @@ parkupine:
     links:
         - parkupinePhp:phpfpm
     volumes:
-        - /home/dude/src/parkupine/public:/srv/http/public
+        - public:/srv/http/public
     environment:
         VIRTUAL_HOST: park.local
 
 parkupinePhp:
     build: dockerBuilds/phpfpm
     volumes:
-        - /home/dude/src/parkupine:/srv/http
+        - .:/srv/http
+
+yeoman:
+    build: dockerBuilds/yeoman
+    volumes:
+        - .:/nodeapp
+    environment:
+        VIRTUAL_HOST: parkyeoman.local
+        VIRTUAL_PORT: 9000
