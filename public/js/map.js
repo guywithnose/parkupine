@@ -11,7 +11,18 @@ function initialize() {
       var garage = garages[index];
       garage.map = map;
       garage.icon='/images/map-point.png';
-      new google.maps.Marker(garage);
+      var content = $('<ul>');
+      content.append($('<li>').append('Title: ' + garage.title));
+      content.append($('<li>').append('Address: ' + garage.address));
+      content.append($('<li>').append('Available spaces: ' + Math.floor(garage.totalSpaces * .34)));
+      content.append($('<li>').append('Price/hr: ' + new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"}).format(garage.pricePerHr)));
+      var infowindow = new google.maps.InfoWindow({
+        content: $('<div>').append(content).html()
+      });
+      var marker = new google.maps.Marker(garage);
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+      });
     }
   });
 }
