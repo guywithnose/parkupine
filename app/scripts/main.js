@@ -1,7 +1,7 @@
 require.config({
     paths: {
         jquery: '../bower_components/jquery/jquery',
-        bootstrap: 'vendor/bootstrap/bootstrap'
+        bootstrap: '../bower_components/bootstrap/dist/js/bootstrap.min'
     },
     shim: {
         bootstrap: {

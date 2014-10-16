@@ -20,3 +20,7 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+.navbar{
+    border-radiud:0px;
+}
