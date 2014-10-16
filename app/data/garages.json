@@ -5,7 +5,7 @@
       "lng": -76.290639
     },
     "title": "Freemason Street",
-    "address": "161 Freemason St. Norfolk, VA 23510",
+    "address": "161 Freemason St. ",
     "totalSpaces": 617,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -16,7 +16,7 @@
       "lng": -76.2877571
     },
     "title": "Bank Street",
-    "address": "441 Bank Street, Norfolk, VA 23510",
+    "address": "441 Bank Street",
     "totalSpaces": 1372,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -27,7 +27,7 @@
       "lng": -76.292796
     },
     "title": "Boush Street",
-    "address": "112 W. City Hall Ave.Norfolk, VA 23510",
+    "address": "112 W. City Hall Ave.",
     "totalSpaces": 716,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -38,7 +38,7 @@
       "lng": -76.287895
     },
     "title": "Charlotte Street",
-    "address": "440 Monticello Avenue, Norfolk, VA 23510",
+    "address": "440 Monticello Avenue",
     "totalSpaces": 482,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -49,7 +49,7 @@
       "lng": -76.283529
     },
     "title": "City Hall South",
-    "address": "999 Main Street, Norfolk, VA 23510",
+    "address": "999 Main Street",
     "totalSpaces": 474,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -60,7 +60,7 @@
       "lng": -76.286747
     },
     "title": "Commercial Place",
-    "address": "520 E Main Street, Norfolk, VA 23510",
+    "address": "520 E Main Street",
     "totalSpaces": 240,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -71,7 +71,7 @@
       "lng": -76.287109
     },
     "title": "MacArthur Center North",
-    "address": "500 City Hall Ave, Norfolk, VA 23510",
+    "address": "500 City Hall Ave",
     "totalSpaces": 1672,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -82,7 +82,7 @@
       "lng": -76.287753
     },
     "title": "MacArthur Center South",
-    "address": "501 City Hall Ave, Norfolk, VA 23510",
+    "address": "501 City Hall Ave",
     "totalSpaces": 2932,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -93,7 +93,7 @@
       "lng": -76.290133
     },
     "title": "Main Street",
-    "address": "230 East Main Street, Norfolk, VA 23510",
+    "address": "230 East Main Street",
     "totalSpaces": 707,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -104,7 +104,7 @@
       "lng": -76.285731
     },
     "title": "Scope",
-    "address": "201 E. Brambleton, Norfolk, VA 23510",
+    "address": "201 E. Brambleton",
     "totalSpaces": 600,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -115,7 +115,7 @@
       "lng": -76.292889
     },
     "title": "Town Point",
-    "address": "110 West Main Street, Norfolk, VA 23510",
+    "address": "110 West Main Street",
     "totalSpaces": 880,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -126,7 +126,7 @@
       "lng": -76.290362
     },
     "title": "Waterside",
-    "address": "50 Martin's Lane, Norfolk, VA 23510",
+    "address": "50 Martin's Lane",
     "totalSpaces": 561,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -137,7 +137,7 @@
       "lng": -76.292962
     },
     "title": "West Plume",
-    "address": "100 West Plume Street, Norfolk, VA 23510",
+    "address": "100 West Plume Street",
     "totalSpaces": 835,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
@@ -148,7 +148,7 @@
       "lng": -76.291265
     },
     "title": "York Street",
-    "address": "215 W. York Street, Norfolk, VA 23510",
+    "address": "215 W. York Street",
     "totalSpaces": 593,
     "pricePerHr": 1.50,
     "maxDaily": 13.00

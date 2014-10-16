@@ -21,7 +21,7 @@
         <!-- endbuild -->
         <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
         <style type="text/css">
-          html, body, #map-canvas, .container, .body-content { height: 350px; width: 100%; margin: 0; padding: 0;}
+          html, body, .container, .body-content, #map-canvas, #wrapper { height: 100%; width: 100%; margin: 0; padding: 0;}
         </style>
 </head>
     <body>
@@ -112,11 +112,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container-fluid tagline">
-  <p class="text-center">Painless Parking in Downtown Norfolk</p>
-</div>
-<div class="container-fluid">
-
+<div class="container-fluid" id="wrapper">
+  <p class="text-center tagline">Painless Parking in Downtown Norfolk</p>
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="body-content">
     <div class="direction-form">
@@ -131,16 +128,14 @@
     </div>
     <div id="map-canvas" style="display:none"></div>
   </div>
-  <div class="footer">
+</div> <!-- /container -->
+ <div class="footer">
       <div class="container-fluid">
         <div class="col-xs-4 twitter"><i class="fa fa-5x fa-twitter"></i></div>
         <div class="col-xs-4 facebook"><i class="fa fa-5x fa-facebook"></i></div>
         <div class="col-xs-4 share"><i class="fa fa-5x fa-share"></i></div>
       </div>
   </div>
-
-</div> <!-- /container -->
-
 
     <!-- JS and analytics only. -->
     <!-- Bootstrap core JavaScript

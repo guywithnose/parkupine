@@ -10,6 +10,7 @@ function initialize() {
   if (address != null) {
     codeAddress(address, map);
       $('.direction-form').hide();
+      $('.footer').hide();
       $('#map-canvas').fadeIn();
   }
 
@@ -18,21 +19,28 @@ function initialize() {
       var garage = garages[index];
       garage.map = map;
       garage.availableSpaces = Math.floor(garage.totalSpaces * (.10 + (.9 * Math.random())));
-      var content = $('<ul>');
-      content.append($('<li>').append('Title: ' + garage.title));
-      content.append($('<li>').append('Address: ' + garage.address));
-      content.append($('<li>').append('Total spaces: ' + garage.totalSpaces));
-      content.append($('<li>').append('Available spaces: ' + garage.availableSpaces));
-      var percentFull = Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
-      content.append($('<li>').append('% full: ' + percentFull + '%'));
-      content.append($('<li>').append('Price/hr: ' + garage.pricePerHr.toFixed(2)));
+      var content = $('<div>');
+
       if (percentFull > 75) {
+        content.append('<span style="color:#e62e2f;font-size:1.2em;font-weight:"><i class="fa fa-building"></i> ' + garage.title + '</span>');
         garage.icon='/images/map-point-red.png';
       } else if (percentFull > 50) {
+        content.append('<span style="color:#f7941d;font-size:1.2em;font-weight:">' + garage.title + '</span>');
         garage.icon='/images/map-point-yellow.png';
       } else {
+        content.append('<span style="color:#B2D233;font-size:1.2em;font-weight:">' + garage.title + '</span>');
         garage.icon='/images/map-point-green.png';
       }
+
+
+      // content.append($('<li>').append('Title: ' + garage.title));
+      content.append('<br><i class="fa fa-map-marker"></i> ' + garage.address);
+      content.append('<br><i class="fa fa-car"></i> ' + garage.availableSpaces);
+      content.append(' open spots out of ' + garage.totalSpaces);
+      
+      var percentFull = Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
+      content.append('<br/><i class="fa fa-pie-chart"></i> ' + percentFull + '% full');
+      content.append('<br><i class="fa fa-money"></i> ' + garage.pricePerHr.toFixed(2));
       var infowindow = new google.maps.InfoWindow({
         content: $('<div>').append(content).html()
       });
