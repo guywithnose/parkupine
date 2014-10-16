@@ -1,0 +1,13 @@
+parkupine:
+    build: dockerBuilds/nginx
+    links:
+        - parkupinePhp:phpfpm
+    volumes:
+        - /home/dude/src/parkupine/public:/srv/http/public
+    environment:
+        VIRTUAL_HOST: park.local
+
+parkupinePhp:
+    build: dockerBuilds/phpfpm
+    volumes:
+        - /home/dude/src/parkupine:/srv/http
