@@ -1,0 +1,129 @@
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+ html, body, .container, .body-content, #map-canvas, #wrapper { 
+    height: 100%; 
+    width: 100%; 
+    margin: 0; 
+    padding: 0;
+}
+
+#wrapper {
+    min-height: 100%;
+    /*height: auto !important;*/
+    height: 100%;
+    margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.hero-unit {
+    margin: 0 auto;
+    max-width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.navbar{
+    border-radius:0px !important;
+    margin-bottom: 0px !important;
+}
+
+.navbar-toggle{
+     margin-top:10px !important;
+     border:none !important;
+}
+
+.navbar-toggle .icon-bar {
+    width: 25px !important;
+    height: 5px !important;
+    border-radius: 4px !important;
+}
+
+.tagline{
+    background-color: #f7941d;
+    padding: 0;
+    text-transform: uppercase;
+    margin:0;
+}
+
+
+
+#destination_address{
+    height: 70px;
+    background: url(../images/map-point.png) no-repeat scroll 7px 7px;
+    font-size: 1.3em;
+    padding-left:55px;
+    position:relative;
+}
+
+#search-nav{
+       /* height: 40px;*/
+        padding-left:28px;
+      background: url(../images/map_point_tiny.png) no-repeat scroll 4px 4px;
+      background-color: #fff;  
+}
+
+
+.facebook{
+    background-color: #3E5B99;
+    color:#fff;
+    padding: 5px 0;
+}
+.twitter{
+    background-color: #28A9E0;
+    color:#fff;
+    padding: 5px 0;
+}
+
+.share{
+    background-color: #f7941d;
+    color:#fff;
+    padding: 5px 0;
+}
+
+.body-content{
+    background: url(../images/blured_image.jpg) no-repeat fixed;
+    background-size: cover;
+}
+
+#search-form-nav{
+    margin-right:25px;
+}
+
+.direction-form{
+
+    float:none;
+    display:inline-block;
+    vertical-align:middle;
+    height: auto;
+    margin-top: 4em;
+
+/*position:absolute; 
+top:0; bottom:0; left:0; right:0;
+margin:auto 1em;
+height: 250px;*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:70px;
+} 
+
+#map-canvas{
+/*    height: 400px;*/
+}

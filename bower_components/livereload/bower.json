@@ -1,0 +1,8 @@
+{
+  "name": "livereload",
+  "version": "2.0.8",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/livereload/livereload-js.git"
+  }
+}

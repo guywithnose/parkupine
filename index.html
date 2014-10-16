@@ -1,0 +1,159 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js'></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTSKFL3e-_v3JeErAS6fv3UKeAuMjgqYo&libraries=places,geometry"></script>
+        <script type="text/javascript" src='js/map.js'></script>
+        <!-- endbuild -->
+
+        <!-- build:css bower_components/bootstrap/dist/css/bootstrap.css -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <!-- endbuild -->
+        <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
+        <style type="text/css">
+        
+
+  /* Move down content because we have a fixed navbar that is 50px tall */
+  body {
+    padding-bottom: 20px;
+  }
+
+  /* Set widths on the navbar form inputs since otherwise they're 100% wide */
+  .navbar-form input[type="text"],
+  .navbar-form input[type="password"] {
+    width: 180px;
+  }
+
+  /* Wrapping element */
+  /* Set some basic padding to keep content from hitting the edges */
+  .body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Responsive: Portrait tablets and up */
+  @media screen and (min-width: 768px) {
+    /* Let the jumbotron breathe */
+    .jumbotron {
+      margin-top: 20px;
+    }
+    /* Remove padding from wrapping element since we kick in the grid classes here */
+    .body-content {
+      padding: 0;
+    }
+  }
+</style>
+</head>
+    <body>
+
+    <!-- Page content of course! -->
+    <!-- Custom styles for this template -->
+
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" id="searchBtn">
+        <span class="sr-only">Search</span>
+        <i class="fa fa-search fa-2x fa-inverse"></i>
+<!--         <span class="icon-bar"></span>
+        <span class="icon-bar"></span> -->
+      </button>
+      <a class="navbar-brand" href="#"><img src="images/PARKUPINE_HOMEPAGE_LOGO_02.png" height="30px"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="hidden-xs" id="search-form-nav">
+
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" id="search-nav" class="form-control" placeholder="Search" name="address">
+        </div>
+        <button type="submit" class="btn btn-warning">Submit</button>
+      </form>
+    
+    </div><!-- /.navbar-collapse -->
+
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid" id="wrapper">
+  <p class="text-center tagline">Painless Parking in Norfolk &amp; VA Beach</p>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="body-content hidden-sm hidden-md hidden-lg">
+    <div class="direction-form col-xs-12">
+      
+        <div class="form-group destination-holder">
+          <form role="form">
+          <!-- <label for="destination_address text-center">Enter an address or a business</label> -->
+          <input type="text" placeholder="Where are you going?" class="form-control" id="destination_address" name="address">  
+
+          <input type="submit" id="submitAddress" value="SUBMIT" class="btn btn-warning btn-block btn-lg" style="margin-top:10px
+          "> 
+          </form>
+        </div>
+    </div>
+    
+  </div>
+  <div id="map-canvas" style="display:none" class="hidden-xs"></div>
+</div> <!-- /container -->
+ <div class="footer">
+      <div class="container-fluid">
+        <a href="https://www.twitter.com/Parkupine"><div class="col-xs-4 twitter"><i class="fa fa-2x fa-twitter"></i></div></a>
+        <a href="https://www.facebook.com/Parkupine"><div class="col-xs-4 facebook"><i class="fa fa-2x fa-facebook"></i></div></a>
+        <div class="col-xs-4 share"><i class="fa fa-2x fa-share"></i></div>
+      </div>
+  </div>
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+
+        <!-- build:js scripts/main.js -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/async-local-storage.js -->
+        <script src="scripts/async.localStorage.js"></script>
+        <script src="scripts/async.localStorage.examples.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/fullscreensnippet.js -->
+        <!-- <script src="scripts/fullscreensnippet.js"></script>-->
+        <!-- endbuild -->
+
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#searchBtn').click(function(){
+                $('#map-canvas').fadeOut();
+                $('.body-content').fadeIn();
+                $('.body-content').removeClass('hidden-xs');
+                $('.footer').fadeIn();
+            });
+          });
+        </script>
+</body>
+</html>
