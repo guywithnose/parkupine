@@ -6,6 +6,9 @@ function initialize() {
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  if (get('address') != null) {
+    codeAddress(get('address'), map);
+  }
 
   $.getJSON('/data/garages.json', function(garages) {
     for (var index in garages) {
@@ -36,6 +39,13 @@ function initialize() {
       google.maps.event.addListener(marker, 'click', _.partial(showInfoWindow, map, marker, infowindow));
     }
   });
+
+  function get(varname) {
+      var value = window.location.search.match(varname + '=(.*?)(&|$)');
+      if (value) {
+        return value[1];
+      }
+  }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -45,4 +55,21 @@ function showInfoWindow(map, marker, infowindow) {
     this.close();
   });
   infowindow.open(map, marker);
+}
+
+function codeAddress(address, map) {
+    address = decodeURIComponent(address);
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        map.setZoom(18);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
 }
