@@ -14,7 +14,7 @@ function initialize() {
       $('#map-canvas').fadeIn();
   }
 
-  $.getJSON('/data/garages.json', function(garages) {
+  $.getJSON('data/garages.json', function(garages) {
     for (var index in garages) {
       var garage = garages[index];
       garage.map = map;
@@ -23,13 +23,13 @@ function initialize() {
 
       if (percentFull > 75) {
         content.append('<span style="color:#e62e2f;font-size:1.2em;font-weight:"><i class="fa fa-building"></i> ' + garage.title + '</span>');
-        garage.icon='/images/map-point-red.png';
+        garage.icon='images/map-point-red.png';
       } else if (percentFull > 50) {
         content.append('<span style="color:#f7941d;font-size:1.2em;font-weight:">' + garage.title + '</span>');
-        garage.icon='/images/map-point-yellow.png';
+        garage.icon='images/map-point-yellow.png';
       } else {
         content.append('<span style="color:#B2D233;font-size:1.2em;font-weight:">' + garage.title + '</span>');
-        garage.icon='/images/map-point-green.png';
+        garage.icon='images/map-point-green.png';
       }
 
 
