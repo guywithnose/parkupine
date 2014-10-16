@@ -6,8 +6,9 @@ function initialize() {
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  if (get('address') != null) {
-    codeAddress(get('address'), map);
+  var address = get('address');
+  if (address != null) {
+    codeAddress(address, map);
   }
 
   $.getJSON('/data/garages.json', function(garages) {
