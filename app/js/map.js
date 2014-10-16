@@ -10,8 +10,7 @@ function initialize() {
   if (address != null) {
     codeAddress(address, map);
       $('.direction-form').hide();
-      $('#map-canvas').fadeIn();
-      direction(map);
+      $('#map-canvas').fadeIn();      
   }
 
   $.getJSON('/data/garages.json', function(garages) {
