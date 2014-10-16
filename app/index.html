@@ -19,8 +19,9 @@
         <!-- build:css bower_components/bootstrap/dist/css/bootstrap.css -->
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <!-- endbuild -->
+        <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
         <style type="text/css">
-          html, body, #map-canvas, .container, .body-content { height: 100%; width: 100%; margin: 0; padding: 0;}
+          html, body, #map-canvas, .container, .body-content { height: 230px; width: 100%; margin: 0; padding: 0;}
         </style>
 </head>
     <body>
@@ -58,8 +59,7 @@
     }
   }
 </style>
-
-<div class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -69,7 +69,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#"><img src="images/PARKUPINE_HOMEPAGE_LOGO_02.png" height="30px"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -111,13 +111,31 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+</nav>
+<div class="container-fluid tagline">
+  <p class="text-center">Painless Parking in Downtown Norfolk</p>
 </div>
-
-<div class="container">
+<div class="container-fluid">
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="body-content">
+    <div class="direction-form">
+      <form role="form">
+        <div class="form-group destination-holder">
+          <!-- <label for="destination_address text-center">Enter an address or a business</label> -->
+          <input type="text" placeholder="Where are you going?" class="form-control" id="destination_address" name="destination_address">  
+
+          <input type="submit" value="SUBMIT" class="btn btn-warning btn-block" style="margin-top:10px"> 
+        </div>
+    </div>
     <div id="map-canvas"></div>
+  </div>
+  <div class="footer">
+      <div class="container-fluid">
+        <div class="col-xs-4 twitter"><i class="fa fa-5x fa-twitter"></i></div>
+        <div class="col-xs-4 facebook"><i class="fa fa-5x fa-facebook"></i></div>
+        <div class="col-xs-4 share"><i class="fa fa-5x fa-share"></i></div>
+      </div>
   </div>
 
 </div> <!-- /container -->
