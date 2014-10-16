@@ -6,11 +6,13 @@ function initialize() {
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(36.851449, -76.290639),
-    map: map,
-    title: 'Hello World!',
-    icon: '/images/map-point.png'
+  $.getJSON('/data/garages.json', function(garages) {
+    for (var index in garages) {
+      var garage = garages[index];
+      garage.map = map;
+      garage.icon='/images/map-point.png';
+      new google.maps.Marker(garage);
+    }
   });
 }
 
