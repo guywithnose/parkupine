@@ -21,7 +21,7 @@
         <!-- endbuild -->
         <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
         <style type="text/css">
-          html, body, #map-canvas, .container, .body-content { height: 230px; width: 100%; margin: 0; padding: 0;}
+          html, body, #map-canvas, .container, .body-content { height: 350px; width: 100%; margin: 0; padding: 0;}
         </style>
 </head>
     <body>
@@ -123,13 +123,13 @@
       <form role="form">
         <div class="form-group destination-holder">
           <!-- <label for="destination_address text-center">Enter an address or a business</label> -->
-          <input type="text" placeholder="Where are you going?" class="form-control" id="destination_address" name="destination_address">  
+          <input type="text" placeholder="Where are you going?" class="form-control" id="destination_address" name="address">  
 
-          <input type="submit" value="SUBMIT" class="btn btn-warning btn-block" style="margin-top:10px
+          <input type="submit" id="submitAddress" value="SUBMIT" class="btn btn-warning btn-block" style="margin-top:10px
           "> 
         </div>
     </div>
-    <div id="map-canvas"></div>
+    <div id="map-canvas" style="display:none"></div>
   </div>
   <div class="footer">
       <div class="container-fluid">
