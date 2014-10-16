@@ -11,7 +11,7 @@ html, body {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
 }
 
 .hero-unit {
@@ -50,12 +50,11 @@ html, body {
 .tagline{
     background-color: #f7941d;
     padding: 0;
+    text-transform: uppercase;
+    margin:0;
 }
 
-.tagline p{
-    margin: 1px;
-    text-transform: uppercase;
-}
+
 
 #destination_address{
     height: 70px;
@@ -90,5 +89,17 @@ html, body {
 position:absolute; 
 top:0; bottom:0; left:0; right:0;
 margin:auto 1em;
-height: 550px;
+height: 250px;
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:30px;
+} 
+
+#map-canvas{
+    height: 400px;
 }
