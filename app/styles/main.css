@@ -4,6 +4,16 @@ body {
     color: #333;
 }
 
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+
 .hero-unit {
     margin: 0 auto;
     max-width: 300px;
@@ -19,4 +29,63 @@ body {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+.navbar{
+    border-radius:0px !important;
+    margin-bottom: 0px !important;
+}
+
+.navbar-toggle{
+     margin-top:10px !important;
+     border:none !important;
+}
+
+.navbar-toggle .icon-bar {
+    width: 25px !important;
+    height: 5px !important;
+    border-radius: 4px !important;
+}
+
+.tagline{
+    background-color: #f7941d;
+    padding: 0;
+}
+
+.tagline p{
+    margin: 1px;
+    text-transform: uppercase;
+}
+
+#destination_address{
+    height: 70px;
+    background: url(../images/map-point.png) no-repeat scroll 7px 7px;
+    font-size: 1.3em;
+    padding-left:55px;
+    position:relative;
+}
+.facebook{
+    background-color: #3E5B99;
+    color:#fff;
+}
+.twitter{
+    background-color: #28A9E0;
+    color:#fff;
+}
+
+.share{
+    background-color: #f7941d;
+    color:#fff;
+}
+
+.body-content{
+    background: url(../images/blured_image.jpg) no-repeat fixed;
+    background-size: cover;
+}
+
+.direction-form{
+position:absolute; 
+top:0; bottom:0; left:0; right:0;
+margin:auto 1em;
+height: 225px;
 }
