@@ -8,5 +8,7 @@
     "jquery": "~1.9.1",
     "font-awesome": "~4.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "livereload": "~2.0.8"
+  }
 }
