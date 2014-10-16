@@ -11,6 +11,7 @@ function initialize() {
     codeAddress(address, map);
       $('.direction-form').hide();
       $('#map-canvas').fadeIn();
+      direction(map);
   }
 
   $.getJSON('/data/garages.json', function(garages) {
@@ -76,3 +77,25 @@ function codeAddress(address, map) {
       }
     });
 }
+
+function direction(map, begin, end)
+{
+var directionsRenderer = new google.maps.DirectionsRenderer();
+directionsRenderer.setPanel(document.getElementById('panel')); 
+var directionsService = new google.maps.DirectionsService();
+var request = {
+  origin: "Sydney, NSW", 
+  destination: "Chatswood, NSW",
+  travelMode: google.maps.DirectionsTravelMode.DRIVING,
+  unitSystem: google.maps.DirectionsUnitSystem.METRIC
+};
+directionsService.route(request, function(response, status) {
+  if (status == google.maps.DirectionsStatus.OK) {
+    directionsRenderer.setDirections(response);
+  } else {
+    alert('Error: ' + status);
+  }
+});
+}
+
+
