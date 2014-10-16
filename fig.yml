@@ -1,21 +1,9 @@
-parkupine:
-    build: dockerBuilds/nginx
-    links:
-        - parkupinePhp:phpfpm
-    volumes:
-        - public:/srv/http/public
-    environment:
-        VIRTUAL_HOST: park.local
-
-parkupinePhp:
-    build: dockerBuilds/phpfpm
-    volumes:
-        - .:/srv/http
-
 yeoman:
-    build: dockerBuilds/yeoman
+    build: dockerBuild
     volumes:
         - .:/nodeapp
     environment:
-        VIRTUAL_HOST: parkyeoman.local
+        VIRTUAL_HOST: park.local
         VIRTUAL_PORT: 9000
+    ports:
+        - 9000:9000
