@@ -118,7 +118,7 @@ module.exports = [
     "availableSpaces": 332,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
-  },  
+  },
   {
     "position": {
       "lat": 36.846577,
@@ -166,5 +166,113 @@ module.exports = [
     "availableSpaces": 412,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
+  },
+  {
+    "position": {
+      "lat": 36.830458,
+      "lng": -75.970249
+    },
+    "title": "2nd Street Municipal Lot",
+    "address": "145 Atlantic Ave",
+    "totalSpaces": 912,
+    "availableSpaces": 150,
+    "pricePerHr": 1.75,
+    "maxDaily": 10.00
+  },
+  {
+    "position": {
+      "lat": 36.830519,
+      "lng": -75.970847
+    },
+    "title": "Rudee Loop Lot",
+    "address": "104 Atlantic Ave",
+    "totalSpaces": 532,
+    "availableSpaces": 412,
+    "pricePerHr": 2.00,
+    "maxDaily": 10.00
+  },
+  {
+    "position": {
+      "lat": 36.832747,
+      "lng": -75.972466
+    },
+    "title": "4th Street Lot",
+    "address": "306 4th St",
+    "totalSpaces": 1124,
+    "availableSpaces": 450,
+    "pricePerHr": 2.25,
+    "maxDaily": 10.00
+  },
+  {
+    "position": {
+      "lat": 36.847855,
+      "lng": -75.977393
+    },
+    "title": "19th Street North",
+    "address": "340 20th St",
+    "totalSpaces": 842,
+    "availableSpaces": 700,
+    "pricePerHr": 2.00,
+    "maxDaily": 10.00
+  },
+  {
+    "position": {
+      "lat": 36.846700,
+      "lng": -75.975754
+    },
+    "title": "19th Street South",
+    "address": "1816 Pacific Ave",
+    "totalSpaces": 1607,
+    "availableSpaces": 50,
+    "pricePerHr": 2.00,
+    "maxDaily": 10.00
+  },
+  {
+    "position": {
+      "lat": 36.818509,
+      "lng": -75.968729
+    },
+    "title": "Croatan Lot",
+    "address": "920 Vanderbilt Avenue", 
+    "totalSpaces": 367,
+    "availableSpaces": 300,
+    "pricePerHr": 1.75,
+    "maxDaily": 7.00
+  },
+  {
+    "position": {
+      "lat": 36.837645,
+      "lng": -75.972178
+    },
+    "title": "9th Street Garage",
+    "address": "-75.972178",
+    "totalSpaces": 956,
+    "availableSpaces": 650,
+    "pricePerHr": 2.00,
+    "maxDaily": 10.00
+  },
+  {
+    "position": {
+      "lat": 36.842636,
+      "lng": -76.134040
+    },
+    "title": "Town Center parking garage",
+    "address": "222 Central Park Ave",
+    "totalSpaces": 1321,
+    "availableSpaces": 350,
+    "pricePerHr": 0.00,
+    "maxDaily": 0.00
+  },
+  {
+    "position": {
+      "lat": 36.858350,
+      "lng": -75.978004
+    },
+    "title": "31st Street",
+    "address": "209 30th St",
+    "totalSpaces": 1835,
+    "availableSpaces": 850,
+    "pricePerHr": 2.00,
+    "maxDaily": 10.00
   }
 ]
