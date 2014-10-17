@@ -13,6 +13,12 @@ function initialize() {
       $('#map-canvas').fadeIn();      
   }
 
+  var input = /** @type {HTMLInputElement} */(
+      document.getElementById('destination_address'));
+
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.bindTo('bounds', map);
+
   $.getJSON('/data/garages.json', function(garages) {
     for (var index in garages) {
       var garage = garages[index];
