@@ -68,8 +68,14 @@ function initialize() {
     });
   }
 
-  new google.maps.places.Autocomplete($('#destination_address')[0]);
-  new google.maps.places.Autocomplete($('input[name="address"]')[0]);
+  var mobileAddress = new google.maps.places.Autocomplete($('#destination_address')[0]);
+  var toolbarAddress = new google.maps.places.Autocomplete($('input[name="address"]')[0]);
+  google.maps.event.addListener(mobileAddress, 'place_changed', function() {
+    convertToAddress(mobileAddress, $('#destination_address'));
+  });
+  google.maps.event.addListener(toolbarAddress, 'place_changed', function() {
+    convertToAddress(toolbarAddress, $('input[name="address"]'));
+  });
 
   garages = $.when(distancesPromise).done(function(garages) {
     for (var index in garages) {
@@ -141,4 +147,11 @@ function codeAddress(address) {
     });
 
     return deferred.promise();
+}
+
+function convertToAddress(autocompleteObject, textBox) {
+  var place = autocompleteObject.getPlace();
+  if (place.formatted_address) {
+    textBox.val(place.formatted_address);
+  }
 }
