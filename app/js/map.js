@@ -92,7 +92,9 @@ function initialize() {
       content.append('<br><i class="fa fa-map-marker"></i> ' + garage.address);
       content.append('<br><i class="fa fa-car"></i> ' + garage.availableSpaces);
       content.append(' open spots out of ' + garage.totalSpaces);
-      content.append('<br><i class="fa fa-clock-o"></i> ' + garage.distance.duration.text + ' walking');
+      if (garage.distance) {
+        content.append('<br><i class="fa fa-clock-o"></i> ' + garage.distance.duration.text + ' walking');
+      }
 
       content.append('<br/><i class="fa fa-pie-chart"></i> ' + garage.percentFull + '% full');
       content.append('<br><i class="fa fa-money"></i> ' + garage.pricePerHr.toFixed(2));
