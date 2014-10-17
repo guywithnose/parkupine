@@ -9,7 +9,7 @@ function initialize() {
   var address = get('address');
   if (address != null) {
     codeAddress(address, map);
-      $('.direction-form').hide();
+      $('.body-content').hide();
       $('.footer').hide();
       $('#map-canvas').fadeIn();
   }
