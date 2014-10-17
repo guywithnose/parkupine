@@ -4,12 +4,16 @@ body {
     color: #333;
 }
 
-html, body {
-    height: 100%;
+ html, body, .container, .body-content, #map-canvas, #wrapper { 
+    height: 100%; 
+    width: 100%; 
+    margin: 0; 
+    padding: 0;
 }
-.wrapper {
+
+#wrapper {
     min-height: 100%;
-    height: auto !important;
+    /*height: auto !important;*/
     height: 100%;
     margin: 0 auto -150px; /* the bottom margin is the negative value of the footer's height */
 }
@@ -85,11 +89,22 @@ html, body {
     background-size: cover;
 }
 
+#search-form-nav{
+    margin-right:25px;
+}
+
 .direction-form{
-position:absolute; 
+
+    float:none;
+    display:inline-block;
+    vertical-align:middle;
+    height: auto;
+    margin-top: 4em;
+
+/*position:absolute; 
 top:0; bottom:0; left:0; right:0;
 margin:auto 1em;
-height: 250px;
+height: 250px;*/
 }
 
 .footer {
@@ -97,9 +112,9 @@ height: 250px;
   margin-top: -150px; /* negative value of footer height */
   height: 150px;
   clear:both;
-  padding-top:30px;
+  padding-top:70px;
 } 
 
 #map-canvas{
-    height: 400px;
+/*    height: 400px;*/
 }

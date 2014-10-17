@@ -21,7 +21,7 @@ function initialize() {
   var distancesPromise = null;
   if (address != null) {
     var locationPromise = codeAddress(address);
-    $('.direction-form').hide();
+    $('.body-content').hide();
     $('.footer').hide();
     $('#map-canvas').fadeIn();
 

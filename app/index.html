@@ -21,14 +21,8 @@
         <!-- endbuild -->
         <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.css">
         <style type="text/css">
-          html, body, .container, .body-content, #map-canvas, #wrapper { height: 100%; width: 100%; margin: 0; padding: 0;}
-        </style>
-</head>
-    <body>
+        
 
-    <!-- Page content of course! -->
-    <!-- Custom styles for this template -->
-<style>
   /* Move down content because we have a fixed navbar that is 50px tall */
   body {
     padding-bottom: 20px;
@@ -59,81 +53,64 @@
     }
   }
 </style>
+</head>
+    <body>
+
+    <!-- Page content of course! -->
+    <!-- Custom styles for this template -->
+
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      <button type="button" class="navbar-toggle collapsed" id="searchBtn">
+        <span class="sr-only">Search</span>
+        <i class="fa fa-search fa-2x fa-inverse"></i>
+<!--         <span class="icon-bar"></span>
+        <span class="icon-bar"></span> -->
       </button>
       <a class="navbar-brand" href="#"><img src="images/PARKUPINE_HOMEPAGE_LOGO_02.png" height="30px"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
+    <div class="hidden-xs" id="search-form-nav">
+
+      <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" name="address">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+    
     </div><!-- /.navbar-collapse -->
+
   </div><!-- /.container-fluid -->
 </nav>
 <div class="container-fluid" id="wrapper">
   <p class="text-center tagline">Painless Parking in Downtown Norfolk</p>
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="body-content">
-    <div class="direction-form">
-      <form role="form">
+    <div class="direction-form col-xs-12">
+      
         <div class="form-group destination-holder">
+          <form role="form">
           <!-- <label for="destination_address text-center">Enter an address or a business</label> -->
           <input type="text" placeholder="Where are you going?" class="form-control" id="destination_address" name="address">  
 
-          <input type="submit" id="submitAddress" value="SUBMIT" class="btn btn-warning btn-block" style="margin-top:10px
+          <input type="submit" id="submitAddress" value="SUBMIT" class="btn btn-warning btn-block btn-lg" style="margin-top:10px
           "> 
+          </form>
         </div>
     </div>
-    <div id="map-canvas" style="display:none"></div>
+    
   </div>
+  <div id="map-canvas" style="display:none"></div>
 </div> <!-- /container -->
  <div class="footer">
       <div class="container-fluid">
-        <div class="col-xs-4 twitter"><i class="fa fa-5x fa-twitter"></i></div>
-        <div class="col-xs-4 facebook"><i class="fa fa-5x fa-facebook"></i></div>
-        <div class="col-xs-4 share"><i class="fa fa-5x fa-share"></i></div>
+        <div class="col-xs-4 twitter"><i class="fa fa-2x fa-twitter"></i></div>
+        <div class="col-xs-4 facebook"><i class="fa fa-2x fa-facebook"></i></div>
+        <div class="col-xs-4 share"><i class="fa fa-2x fa-share"></i></div>
       </div>
   </div>
 
@@ -165,12 +142,22 @@
         <!-- endbuild -->
 
         <!-- build:js scripts/fullscreensnippet.js -->
-        <script src="scripts/fullscreensnippet.js"></script>
+        <!-- <script src="scripts/fullscreensnippet.js"></script>-->
         <!-- endbuild -->
 
         <!-- build:js scripts/fastclick.js -->
         <script src="scripts/fastclick.js"></script>
         <script src="scripts/fastclick.example.js"></script>
         <!-- endbuild -->
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('#searchBtn').click(function(){
+
+                $('#map-canvas').fadeOut();
+                $('.body-content').fadeIn();
+                $('.footer').fadeIn();
+            });
+          });
+        </script>
 </body>
 </html>
