@@ -18,14 +18,15 @@ function initialize() {
   });
 
   var address = get('address');
-  var distancesPromise = null;
+  var distancesPromise = garagePromise;
   if (address != null) {
     var locationPromise = codeAddress(address);
     $('.direction-form').hide();
     $('.footer').hide();
     $('#map-canvas').fadeIn();
 
-    distancesPromise = $.when(locationPromise, garagePromise).done(function(location, garages) {
+    distancesPromise = $.when(locationPromise, garagePromise).then(function(location, garages) {
+      var deferred = $.Deferred();
       if (!location) {
         return;
       }
@@ -51,6 +52,7 @@ function initialize() {
           var availableOffset = 150 * Math.pow(1.9 - (garage.percentFull / 100), -5);
           return garage.distance.duration.value + availableOffset;
         });
+        deferred.resolve(garages);
 
         map.setCenter(garages[0].position);
         map.setZoom(19);
@@ -60,10 +62,12 @@ function initialize() {
             title: 'You are here!'
         });
       });
+      return deferred.promise();
     });
   }
 
-  garages = $.when(garagePromise, distancesPromise).done(function(garages, distances) {
+  garages = $.when(distancesPromise).done(function(garages) {
+    console.log(garages);
     for (var index in garages) {
       var garage = garages[index];
       garage.map = map;
@@ -84,6 +88,7 @@ function initialize() {
       content.append('<br><i class="fa fa-map-marker"></i> ' + garage.address);
       content.append('<br><i class="fa fa-car"></i> ' + garage.availableSpaces);
       content.append(' open spots out of ' + garage.totalSpaces);
+      content.append('<br><i class="fa fa-clock-o"></i> ' + garage.distance.duration.text + ' walking');
 
       content.append('<br/><i class="fa fa-pie-chart"></i> ' + garage.percentFull + '% full');
       content.append('<br><i class="fa fa-money"></i> ' + garage.pricePerHr.toFixed(2));

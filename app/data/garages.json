@@ -127,7 +127,7 @@
     "title": "Town Point",
     "address": "110 West Main Street",
     "totalSpaces": 880,
-    "availableSpaces": 741,
+    "availableSpaces": 841,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -151,7 +151,7 @@
     "title": "West Plume",
     "address": "100 West Plume Street",
     "totalSpaces": 835,
-    "availableSpaces": 321,
+    "availableSpaces": 121,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
