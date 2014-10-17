@@ -26,7 +26,7 @@ function initialize() {
       garage.availableSpaces = Math.floor(garage.totalSpaces * (.10 + (.9 * Math.random())));
       var content = $('<ul>');
       content.append($('<li>').append('Title: ' + garage.title));
-      content.append($('<li>').append('Address: ' + garage.address));
+      content.append('<br><i class="fa fa-map-marker"></i><a href="http://maps.google.com/?daddr=' + garage.address +'"> ' + garage.address + '</a>');
       content.append($('<li>').append('Total spaces: ' + garage.totalSpaces));
       content.append($('<li>').append('Available spaces: ' + garage.availableSpaces));
       var percentFull = Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
