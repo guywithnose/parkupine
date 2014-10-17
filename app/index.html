@@ -89,7 +89,7 @@
 <div class="container-fluid" id="wrapper">
   <p class="text-center tagline">Painless Parking in Downtown Norfolk</p>
   <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="body-content">
+  <div class="body-content hidden-sm hidden-md hidden-lg">
     <div class="direction-form col-xs-12">
       
         <div class="form-group destination-holder">
@@ -104,7 +104,7 @@
     </div>
     
   </div>
-  <div id="map-canvas" style="display:none"></div>
+  <div id="map-canvas" style="display:none" class="hidden-xs"></div>
 </div> <!-- /container -->
  <div class="footer">
       <div class="container-fluid">
@@ -152,9 +152,9 @@
         <script type="text/javascript">
           $(document).ready(function(){
             $('#searchBtn').click(function(){
-
                 $('#map-canvas').fadeOut();
                 $('.body-content').fadeIn();
+                $('.body-content').removeClass('hidden-xs');
                 $('.footer').fadeIn();
             });
           });

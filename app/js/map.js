@@ -22,7 +22,9 @@ function initialize() {
   if (address != null) {
     var locationPromise = codeAddress(address);
     $('.body-content').hide();
+    $('.body-content').addClass('hidden-xs');
     $('.footer').hide();
+    $('#map-canvas').removeClass('hidden-xs');
     $('#map-canvas').fadeIn();
 
     distancesPromise = $.when(locationPromise, garagePromise).then(function(location, garages) {
