@@ -54,15 +54,16 @@ function initialize() {
           var availableOffset = 150 * Math.pow(1.9 - (garage.percentFull / 100), -5);
           return garage.distance.duration.value + availableOffset;
         });
-        deferred.resolve(garages);
 
         map.setCenter(garages[0].position);
+        garages[0].openOnLoad = true;
         map.setZoom(19);
         var marker = new google.maps.Marker({
             map: map,
             position: location,
             title: 'You are here!'
         });
+        deferred.resolve(garages);
       });
       return deferred.promise();
     });
@@ -110,6 +111,10 @@ function initialize() {
       var marker = new google.maps.Marker(garage);
       var infowindow = new google.maps.InfoWindow({content: $('<div>').append(content).html()});
       infoWindows.push(infowindow);
+      if (garage.openOnLoad) {
+        infowindow.open(map, marker);
+      }
+
       google.maps.event.addListener(marker, 'click', _.partial(showInfoWindow, map, marker, infowindow));
     }
 
