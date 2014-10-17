@@ -7,6 +7,10 @@ var garages = require('./garages');
 var app = express();
 app.use('/', function(req, res){
   gm.geocode(req.query.Body, function(err, response){
+    if (err) {
+      res.send(JSON.stringify(err));
+    }
+
     var origins = response.results[0].geometry.location;
     var destinations = _.map(_.pluck(garages, 'position'), formatLocation).join('|');
     gm.distance(formatLocation(origins), destinations, function(err, response) {
@@ -36,5 +40,5 @@ function formatLocation (location){
 }
 
 function formatGarage (garage) {
-  return garage.title + '\n' + garage.address + '\n' + garage.availableSpaces + ' open spots out of ' + garage.totalSpaces + '\n' + garage.distance.duration.value + ' mins walking' + '\nPrice: $' + garage.pricePerHr.toFixed(2);
+  return garage.title + '\n' + garage.address + '\n' + garage.availableSpaces + ' open spots out of ' + garage.totalSpaces + '\n' + garage.distance.duration.text + ' walking' + '\nPrice: $' + garage.pricePerHr.toFixed(2);
 }
