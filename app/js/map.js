@@ -66,8 +66,12 @@ function initialize() {
     });
   }
 
+  var input = /** @type {HTMLInputElement} */(
+      document.getElementById('destination_address'));
+
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.bindTo('bounds', map);
   garages = $.when(distancesPromise).done(function(garages) {
-    console.log(garages);
     for (var index in garages) {
       var garage = garages[index];
       garage.map = map;
