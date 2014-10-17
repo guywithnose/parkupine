@@ -11,7 +11,7 @@ function initialize() {
     var garages = result;
     for (var index in garages) {
       var garage = garages[index];
-      garage.percentFull = Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
+      garage.percentFull = 100 - Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
     }
 
     return garages;
