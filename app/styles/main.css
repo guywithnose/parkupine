@@ -67,6 +67,15 @@ body {
     padding-left:55px;
     position:relative;
 }
+
+#search-nav{
+       /* height: 40px;*/
+        padding-left:28px;
+      background: url(../images/map_point_tiny.png) no-repeat scroll 4px 4px;
+      background-color: #fff;  
+}
+
+
 .facebook{
     background-color: #3E5B99;
     color:#fff;
