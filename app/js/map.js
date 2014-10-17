@@ -66,11 +66,9 @@ function initialize() {
     });
   }
 
-  var input = /** @type {HTMLInputElement} */(
-      document.getElementById('destination_address'));
+  new google.maps.places.Autocomplete($('#destination_address')[0]);
+  new google.maps.places.Autocomplete($('input[name="address"]')[0]);
 
-  var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.bindTo('bounds', map);
   garages = $.when(distancesPromise).done(function(garages) {
     for (var index in garages) {
       var garage = garages[index];
