@@ -89,6 +89,10 @@ body {
     background-size: cover;
 }
 
+#search-form-nav{
+    margin-right:25px;
+}
+
 .direction-form{
 
     float:none;
