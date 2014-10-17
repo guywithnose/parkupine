@@ -95,7 +95,7 @@ function initialize() {
       }
 
       // content.append($('<li>').append('Title: ' + garage.title));
-      content.append('<br><i class="fa fa-map-marker"></i> ' + garage.address);
+      content.append('<br><i class="fa fa-map-marker"></i><a href="http://maps.google.com/?daddr=' + garage.address +'"> ' + garage.address + '</a>');
       content.append('<br><i class="fa fa-car"></i> ' + garage.availableSpaces);
       content.append(' open spots out of ' + garage.totalSpaces);
       if (garage.distance) {
