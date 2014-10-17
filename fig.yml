@@ -7,3 +7,4 @@ yeoman:
         VIRTUAL_PORT: 9000
     ports:
         - 9000:9000
+        - 35729:35729

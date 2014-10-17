@@ -7,6 +7,7 @@
     "title": "Freemason Street",
     "address": "161 Freemason St. ",
     "totalSpaces": 617,
+    "availableSpaces": 576,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -18,6 +19,7 @@
     "title": "Bank Street",
     "address": "441 Bank Street",
     "totalSpaces": 1372,
+    "availableSpaces": 645,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -29,6 +31,7 @@
     "title": "Boush Street",
     "address": "112 W. City Hall Ave.",
     "totalSpaces": 716,
+    "availableSpaces": 357,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -40,6 +43,7 @@
     "title": "Charlotte Street",
     "address": "440 Monticello Avenue",
     "totalSpaces": 482,
+    "availableSpaces": 452,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -51,6 +55,7 @@
     "title": "City Hall South",
     "address": "999 Main Street",
     "totalSpaces": 474,
+    "availableSpaces": 298,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -62,6 +67,7 @@
     "title": "Commercial Place",
     "address": "520 E Main Street",
     "totalSpaces": 240,
+    "availableSpaces": 32,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -73,6 +79,7 @@
     "title": "MacArthur Center North",
     "address": "500 City Hall Ave",
     "totalSpaces": 1672,
+    "availableSpaces": 1243,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -84,6 +91,7 @@
     "title": "MacArthur Center South",
     "address": "501 City Hall Ave",
     "totalSpaces": 2932,
+    "availableSpaces": 1243,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -95,6 +103,7 @@
     "title": "Main Street",
     "address": "230 East Main Street",
     "totalSpaces": 707,
+    "availableSpaces": 687,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -106,6 +115,7 @@
     "title": "Scope",
     "address": "201 E. Brambleton",
     "totalSpaces": 600,
+    "availableSpaces": 332,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },  
@@ -117,6 +127,7 @@
     "title": "Town Point",
     "address": "110 West Main Street",
     "totalSpaces": 880,
+    "availableSpaces": 741,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -128,6 +139,7 @@
     "title": "Waterside",
     "address": "50 Martin's Lane",
     "totalSpaces": 561,
+    "availableSpaces": 125,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -139,6 +151,7 @@
     "title": "West Plume",
     "address": "100 West Plume Street",
     "totalSpaces": 835,
+    "availableSpaces": 321,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   },
@@ -150,6 +163,7 @@
     "title": "York Street",
     "address": "215 W. York Street",
     "totalSpaces": 593,
+    "availableSpaces": 412,
     "pricePerHr": 1.50,
     "maxDaily": 13.00
   }

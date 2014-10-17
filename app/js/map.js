@@ -1,4 +1,5 @@
 var infoWindows = [];
+var garages;
 function initialize() {
   var mapOptions = {
     center: { lat: 36.850311, lng: -76.288529},
@@ -6,40 +7,85 @@ function initialize() {
   };
 
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var garagePromise = $.getJSON('data/garages.json').then(function(result) {
+    var garages = result;
+    for (var index in garages) {
+      var garage = garages[index];
+      garage.percentFull = Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
+    }
+
+    return garages;
+  });
+
   var address = get('address');
+  var distancesPromise = null;
   if (address != null) {
-    codeAddress(address, map);
-      $('.body-content').hide();
-      $('.footer').hide();
-      $('#map-canvas').fadeIn();
+    var locationPromise = codeAddress(address);
+    $('.body-content').hide();
+    $('.footer').hide();
+    $('#map-canvas').fadeIn();
+
+    distancesPromise = $.when(locationPromise, garagePromise).done(function(location, garages) {
+      if (!location) {
+        return;
+      }
+
+      var positions = [];
+      for (var i in garages) {
+        positions.push(garages[i].position);
+      }
+
+      var service = new google.maps.DistanceMatrixService();
+      service.getDistanceMatrix({
+        origins: [location],
+        destinations: positions,
+        travelMode: google.maps.TravelMode.WALKING,
+        unitSystem: google.maps.UnitSystem.IMPERIAL
+      },
+      function(response, status) {
+        var distances = response.rows[0].elements;
+        $.each(distances, function(index, value) {
+          garages[index].distance = distances[index];
+        });
+        garages = _.sortBy(garages, function(garage) {
+          var availableOffset = 150 * Math.pow(1.9 - (garage.percentFull / 100), -5);
+          return garage.distance.duration.value + availableOffset;
+        });
+
+        map.setCenter(garages[0].position);
+        map.setZoom(19);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: location,
+            title: 'You are here!'
+        });
+      });
+    });
   }
 
-  $.getJSON('/data/garages.json', function(garages) {
+  garages = $.when(garagePromise, distancesPromise).done(function(garages, distances) {
     for (var index in garages) {
       var garage = garages[index];
       garage.map = map;
-      garage.availableSpaces = Math.floor(garage.totalSpaces * (.10 + (.9 * Math.random())));
       var content = $('<div>');
 
-      if (percentFull > 75) {
+      if (garage.percentFull > 75) {
         content.append('<span style="color:#e62e2f;font-size:1.2em;font-weight:"><i class="fa fa-building"></i> ' + garage.title + '</span>');
-        garage.icon='/images/map-point-red.png';
-      } else if (percentFull > 50) {
-        content.append('<span style="color:#f7941d;font-size:1.2em;font-weight:">' + garage.title + '</span>');
-        garage.icon='/images/map-point-yellow.png';
+        garage.icon='images/map-point-red.png';
+      } else if (garage.percentFull > 50) {
+        content.append('<span style="color:#f7941d;font-size:1.2em;font-weight:"><i class="fa fa-building"></i>' + garage.title + '</span>');
+        garage.icon='images/map-point-yellow.png';
       } else {
-        content.append('<span style="color:#B2D233;font-size:1.2em;font-weight:">' + garage.title + '</span>');
-        garage.icon='/images/map-point-green.png';
+        content.append('<span style="color:#B2D233;font-size:1.2em;font-weight:"><i class="fa fa-building"></i>' + garage.title + '</span>');
+        garage.icon='images/map-point-green.png';
       }
-
 
       // content.append($('<li>').append('Title: ' + garage.title));
       content.append('<br><i class="fa fa-map-marker"></i> ' + garage.address);
       content.append('<br><i class="fa fa-car"></i> ' + garage.availableSpaces);
       content.append(' open spots out of ' + garage.totalSpaces);
-      
-      var percentFull = Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
-      content.append('<br/><i class="fa fa-pie-chart"></i> ' + percentFull + '% full');
+
+      content.append('<br/><i class="fa fa-pie-chart"></i> ' + garage.percentFull + '% full');
       content.append('<br><i class="fa fa-money"></i> ' + garage.pricePerHr.toFixed(2));
       var infowindow = new google.maps.InfoWindow({
         content: $('<div>').append(content).html()
@@ -49,15 +95,18 @@ function initialize() {
       infoWindows.push(infowindow);
       google.maps.event.addListener(marker, 'click', _.partial(showInfoWindow, map, marker, infowindow));
     }
-  });
 
-  function get(varname) {
-      var value = window.location.search.match(varname + '=(.*?)(&|$)');
-      if (value) {
-        return value[1];
-      }
+    return garages;
+  });
+}
+
+function get(varname) {
+  var value = window.location.search.match(varname + '=(.*?)(&|$)');
+  if (value) {
+    return value[1];
   }
 }
+
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -68,19 +117,17 @@ function showInfoWindow(map, marker, infowindow) {
   infowindow.open(map, marker);
 }
 
-function codeAddress(address, map) {
+function codeAddress(address) {
+    var deferred = $.Deferred();
     address = decodeURIComponent(address);
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode( { 'address': address}, function(results, status) {
+    geocoder.geocode({'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        map.setZoom(18);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
+        deferred.resolve(results[0].geometry.location);
       } else {
-        alert("Geocode was not successful for the following reason: " + status);
+        deferred.fail(null);
       }
     });
+
+    return deferred.promise();
 }
