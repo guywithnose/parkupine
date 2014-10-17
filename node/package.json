@@ -1,0 +1,12 @@
+{
+  "name": "tol-apigee",
+  "version": "2.0.0",
+  "description": "TraderOnline apigee facade",
+  "main": "server.js",
+  "private": true,
+  "dependencies": {
+    "express": "~3.7",
+    "underscore": "*",
+    "googlemaps": "*"
+  }
+}
