@@ -100,7 +100,7 @@ function initialize() {
       content.append('<br><i class="fa fa-car"></i> ' + garage.availableSpaces);
       content.append(' open spots out of ' + garage.totalSpaces);
       if (garage.distance) {
-        content.append('<br><i class="fa fa-clock-o"></i> ' + garage.distance.duration.text + ' walking');
+        content.append('<br><i class="fa fa-clock-o"></i> <a href="https://maps.google.com/maps?dirflg=w&saddr=' + garage.address +  '&daddr=' + address + '">' + garage.distance.duration.text + ' walking</a>');
       }
 
       content.append('<br/><i class="fa fa-pie-chart"></i> ' + garage.percentFull + '% full');
