@@ -11,7 +11,6 @@ function initialize() {
     var garages = result;
     for (var index in garages) {
       var garage = garages[index];
-      garage.percentFull = 100 - Math.floor(garage.availableSpaces * 100 / garage.totalSpaces);
     }
 
     return garages;
@@ -51,8 +50,7 @@ function initialize() {
           garages[index].distance = distances[index];
         });
         garages = _.sortBy(garages, function(garage) {
-          var availableOffset = 150 * Math.pow(1.9 - (garage.percentFull / 100), -5);
-          return garage.distance.duration.value + availableOffset;
+          return garage.distance.duration.value;
         });
 
         map.setCenter(garages[0].position);
@@ -84,26 +82,16 @@ function initialize() {
       garage.map = map;
       var content = $('<div>');
 
-      if (garage.percentFull > 75) {
-        content.append('<span style="color:#e62e2f;font-size:1.2em;font-weight:"><i class="fa fa-building"></i> ' + garage.title + '</span>');
-        garage.icon='images/map-point-red.png';
-      } else if (garage.percentFull > 50) {
-        content.append('<span style="color:#f7941d;font-size:1.2em;font-weight:"><i class="fa fa-building"></i>' + garage.title + '</span>');
-        garage.icon='images/map-point-yellow.png';
-      } else {
-        content.append('<span style="color:#B2D233;font-size:1.2em;font-weight:"><i class="fa fa-building"></i>' + garage.title + '</span>');
-        garage.icon='images/map-point-green.png';
-      }
+    content.append('<span style="color:#B2D233;font-size:1.2em;font-weight:"><i class="fa fa-building"></i>' + garage.title + '</span>');
+    garage.icon='images/map-point-green.png';
 
       // content.append($('<li>').append('Title: ' + garage.title));
       content.append('<br><i class="fa fa-map-marker"></i><a href="http://maps.google.com/?daddr=' + garage.address +'"> ' + garage.address + '</a>');
-      content.append('<br><i class="fa fa-car"></i> ' + garage.availableSpaces);
-      content.append(' open spots out of ' + garage.totalSpaces);
+      content.append(garage.totalSpaces + ' total spaces');
       if (garage.distance) {
         content.append('<br><i class="fa fa-clock-o"></i> <a href="https://maps.google.com/maps?dirflg=w&saddr=' + garage.address +  '&daddr=' + address + '">' + garage.distance.duration.text + ' walking</a>');
       }
 
-      content.append('<br/><i class="fa fa-pie-chart"></i> ' + garage.percentFull + '% full');
       content.append('<br><i class="fa fa-money"></i> ' + garage.pricePerHr.toFixed(2));
       var infowindow = new google.maps.InfoWindow({
         content: $('<div>').append(content).html()
